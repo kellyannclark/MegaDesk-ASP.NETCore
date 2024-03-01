@@ -4,12 +4,10 @@
 @{
     ViewData["Title"] = "Delete";
 }
-<div class=" create-page-centered">
+<div class="create-page-centered">
     <h1>Delete</h1>
-
     <h3>Are you sure you want to delete this?</h3>
     <div>
- 
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
@@ -55,7 +53,6 @@
                 @Html.DisplayFor(model => model.DeskQuote.QuoteAmount)
             </dd>
         </dl>
-    
         <form method="post">
             <input type="hidden" asp-for="DeskQuote.ID" />
             <input type="submit" value="Delete" class="btn btn-secondary" /> |

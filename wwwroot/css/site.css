@@ -28,8 +28,12 @@ h1 {
     font-family: "Satisfy", cursive;
     font-weight: 400;
     color: black;
-    font-size: 42px;
+    font-size: 36px; /* Reduced from 42px to make it slightly smaller */
+    margin-top: 10px; /* Adjust top margin */
+    margin-bottom: 10px; /* Adjust bottom margin */
+    padding: 0; /* Remove padding if any */
 }
+
 
 p {
     line-height: 1.6;
@@ -77,6 +81,7 @@ a {
 /* Containers */
 .container, .container-fluid {
     padding: 2rem;
+    margin-top: -35px;
 }
 
 /* Navigation */
@@ -137,6 +142,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 20px;
 }
 
     .create-page-centered .container {
