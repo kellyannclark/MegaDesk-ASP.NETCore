@@ -17,6 +17,9 @@
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Name)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DeskQuote[0].orderedDate)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Width)
             </th>
             <th>
@@ -43,6 +46,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.orderedDate)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Width)
             </td>

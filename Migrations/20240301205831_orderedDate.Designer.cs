@@ -3,6 +3,7 @@ using System;
 using MegaDesk_ASP.NET_Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MegaDesk_ASP.NET_Core.Migrations
 {
     [DbContext(typeof(MegaDesk_ASPNET_CoreContext))]
-    partial class MegaDesk_ASPNET_CoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240301205831_orderedDate")]
+    partial class orderedDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
