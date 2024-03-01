@@ -24,7 +24,7 @@ namespace MegaDesk_ASP.NET_Core.Models
         public required string SurfaceMaterial { get; set; }
 
         [Display(Name = "Rush Days")]
-        public int RushDays { get; set; }
+        public string RushDays { get; set; }
 
         [Display(Name = "Quoted Price")]
         public int QuoteAmount { get; set; }
