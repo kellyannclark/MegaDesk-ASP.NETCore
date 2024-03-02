@@ -40,27 +40,49 @@
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.SurfaceMaterial" class="control-label"></label>
-                <select asp-for="DeskQuote.SurfaceMaterial" class="form-control">
-                    <option value="">Select Surface Material</option>
-                    <option value="Laminate">Laminate</option>
-                    <option value="Oak">Oak</option>
-                   <option value="Rosewood">Rosewood</option>
-                   <option value="Veneer">Veneer</option>
-                   <option value="Pine">Pine</option>
+                <select asp-for="DeskQuote.SurfaceMaterial" class="form-control" id="surfaceMaterialDropdown" onchange="updateImage()">
+                    <option value="" data-image="">Select Surface Material</option>
+                    <option value="Laminate" data-image="/Images/laminate.jpg">Laminate</option>
+                    <option value="Oak" data-image="/Images/oak.jpg">Oak</option>
+                    <option value="Rosewood" data-image="/Images/rosewood.jpg">Rosewood</option>
+                    <option value="Veneer" data-image="/Images/Veneer.jpg">Veneer</option>
+                    <option value="Pine" data-image="/Images/pine.jpg">Pine</option>
                 </select>
                 <span asp-validation-for="DeskQuote.SurfaceMaterial" class="text-danger"></span>
+
+                <!-- Thumbnail Image Container -->
+                <div id="thumbnailContainer" style="margin-top: 10px;">
+                    <img id="thumbnailImage" src="" alt="Surface Material Thumbnail" style="max-width: 100px; max-height: 100px; display: none;" />
+                </div>
             </div>
+
+            <script>
+                function updateImage() {
+                    var dropdown = document.getElementById("surfaceMaterialDropdown");
+                    var selectedOption = dropdown.options[dropdown.selectedIndex];
+                    var imagePath = selectedOption.getAttribute("data-image");
+
+                    // Set the image source in the thumbnail
+                    var thumbnailImage = document.getElementById("thumbnailImage");
+                    thumbnailImage.src = imagePath;
+
+                    // Display or hide the thumbnail based on whether an image is selected
+                    thumbnailImage.style.display = imagePath ? "inline-block" : "none";
+                }
+            </script>
             <div class="form-group">
                 <label asp-for="DeskQuote.RushDays" class="control-label"></label>
-                <select asp-for="DeskQuote.RushDays" class="form-control" />
+                <select asp-for="DeskQuote.RushDays" class="form-control">
                     <option value="">Select Rush Days</option>
-                    <option value="3 Days"> 3 Days</option>
-                    <option value="5 Days"> 5 Days</option>
-                    <option value="7 Days"> 7 Days</option>
-                    <option value="Standard 14"> Standard 14</option>
+                    <option value="3 Days">3 Days</option>
+                    <option value="5 Days">5 Days</option>
+                    <option value="7 Days">7 Days</option>
+                    <option value="Standard 14">Standard 14</option>
                 </select>
                 <span asp-validation-for="DeskQuote.RushDays" class="text-danger"></span>
             </div>
+
+            
             
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -76,3 +98,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
