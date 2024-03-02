@@ -27,7 +27,6 @@ namespace MegaDesk_ASP.NET_Core.Pages.DeskQuotes
         [BindProperty]
         public DeskQuote DeskQuote { get; set; } = default!;
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -35,10 +34,12 @@ namespace MegaDesk_ASP.NET_Core.Pages.DeskQuotes
                 return Page();
             }
 
+            DeskQuote.QuoteAmount = DeskQuote.GetQuote();
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
+
     }
 }
