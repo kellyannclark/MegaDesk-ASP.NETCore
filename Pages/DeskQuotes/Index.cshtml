@@ -1,0 +1,45 @@
+﻿@page
+@model MegaDesk_ASP.NET_Core.Pages.DeskQuotes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-page="Create" class="btn btn-secondary mb-3">Create New</a> <!-- Added Bootstrap margin-bottom class -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].Name)</th>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].orderedDate)</th>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].Width)</th>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].Depth)</th>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].NumberOfDrawers)</th>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].SurfaceMaterial)</th>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].RushDays)</th>
+            <th>@Html.DisplayNameFor(model => model.DeskQuote[0].QuoteAmount)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.DeskQuote)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.orderedDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Width)</td>
+                <td>@Html.DisplayFor(modelItem => item.Depth)</td>
+                <td>@Html.DisplayFor(modelItem => item.NumberOfDrawers)</td>
+                <td>@Html.DisplayFor(modelItem => item.SurfaceMaterial)</td>
+                <td>@Html.DisplayFor(modelItem => item.RushDays)</td>
+                <td>@Html.DisplayFor(modelItem => item.QuoteAmount)</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

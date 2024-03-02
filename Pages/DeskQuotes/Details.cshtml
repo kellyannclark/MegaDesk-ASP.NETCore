@@ -1,0 +1,50 @@
+﻿@page
+@model MegaDesk_ASP.NET_Core.Pages.DeskQuotes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="create-page-centered">
+    <h1>Details</h1>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <dl class="row">
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.Name)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.Name)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.orderedDate)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.orderedDate)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.Width)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.Width)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.Depth)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.Depth)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.NumberOfDrawers)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.NumberOfDrawers)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.SurfaceMaterial)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.SurfaceMaterial)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.RushDays)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.RushDays)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DeskQuote.QuoteAmount)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.DeskQuote.QuoteAmount)</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a asp-page="./Edit" asp-route-id="@Model.DeskQuote.ID" class="btn btn-secondary me-2">Edit</a>
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,66 @@
+﻿@page
+@model MegaDesk_ASP.NET_Core.Pages.DeskQuotes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="create-page-centered">
+    <h1>Create Desk Quote</h1>
+    <hr />
+    <div class="d-flex justify-content-center">
+       
+        <div class="col-md-6">
+            
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="DeskQuote.Name" class="control-label"></label>
+                    <input asp-for="DeskQuote.Name" class="form-control" />
+                    <span asp-validation-for="DeskQuote.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeskQuote.orderedDate" class="control-label"></label>
+                    <input asp-for="DeskQuote.orderedDate" class="form-control" />
+                    <span asp-validation-for="DeskQuote.orderedDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeskQuote.Width" class="control-label"></label>
+                    <input asp-for="DeskQuote.Width" class="form-control" />
+                    <span asp-validation-for="DeskQuote.Width" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeskQuote.Depth" class="control-label"></label>
+                    <input asp-for="DeskQuote.Depth" class="form-control" />
+                    <span asp-validation-for="DeskQuote.Depth" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeskQuote.NumberOfDrawers" class="control-label"></label>
+                    <input asp-for="DeskQuote.NumberOfDrawers" class="form-control" />
+                    <span asp-validation-for="DeskQuote.NumberOfDrawers" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeskQuote.SurfaceMaterial" class="control-label"></label>
+                    <input asp-for="DeskQuote.SurfaceMaterial" class="form-control" />
+                    <span asp-validation-for="DeskQuote.SurfaceMaterial" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DeskQuote.RushDays" class="control-label"></label>
+                    <input asp-for="DeskQuote.RushDays" class="form-control" />
+                    <span asp-validation-for="DeskQuote.RushDays" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center">
+                    <!-- Center the buttons -->
+                    <input type="submit" value="Create" class="btn btn-secondary" />
+                    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
