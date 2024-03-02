@@ -9,7 +9,7 @@ namespace MegaDesk_ASP.NET_Core.Models
         [Display(Name = "Ordered Date")]
         [DataType(DataType.Date), Required]
         public DateTime orderedDate { get; set; }
-        public required string Name { get; set; }
+        public string Name { get; set; }
 
         [Range(24, 96), Required]
         public int Width { get; set; }
@@ -21,7 +21,7 @@ namespace MegaDesk_ASP.NET_Core.Models
         public int NumberOfDrawers { get; set; }
 
         [Display(Name = "Surface Material"), Required]
-        public required string SurfaceMaterial { get; set; }
+        public string SurfaceMaterial { get; set; }
 
         [Display(Name = "Rush Days"), Required]
         public int RushDays { get; set; }
