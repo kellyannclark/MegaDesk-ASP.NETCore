@@ -31,6 +31,8 @@ namespace MegaDesk_ASP.NET_Core.Models
 
         public List<String> AllowedMaterials { get; } = new List<string> { "Laminate", "Oak", "Rosewood", "Veneer", "Pine" };
 
+        public List<int> AllowedRushDays { get; } = new List<int> { 3, 5, 7, 14 };
+
         public int GetQuote()
         {
             int basePrice = 200;

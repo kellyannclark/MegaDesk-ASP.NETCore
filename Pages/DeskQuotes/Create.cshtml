@@ -10,7 +10,7 @@
     <hr />
     <div class="d-flex justify-content-center">
        
-        <div class="col-md-6">
+        <div class="container">
             
             <form method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -40,12 +40,12 @@
                     <span asp-validation-for="DeskQuote.NumberOfDrawers" class="text-danger"></span>
                 </div><div class="form-group">
                     <label asp-for="DeskQuote.SurfaceMaterial" class="control-label"></label>
-                    <select asp-for="DeskQuote.SurfaceMaterial" asp-items="@(new SelectList(Model.DeskQuote.AllowedMaterials))" class="form-control"></select>
+                    <select asp-for="DeskQuote.SurfaceMaterial" asp-items="@(new SelectList(Model.DeskQuote.AllowedMaterials))" class="form-control" id="materialSelect"></select>
                     <span asp-validation-for="DeskQuote.SurfaceMaterial" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="DeskQuote.RushDays" class="control-label"></label>
-                    <input asp-for="DeskQuote.RushDays" class="form-control" />
+                    <select asp-for="DeskQuote.RushDays" asp-items="@(new SelectList(Model.DeskQuote.AllowedRushDays))" class="form-control"></select>
                     <span asp-validation-for="DeskQuote.RushDays" class="text-danger"></span>
                 </div>
                 <div class="form-group text-center">
@@ -54,6 +54,9 @@
                 </div>
             </form>
         </div>
+        <div style="margin: 5rem 0; padding: 2rem;">
+            <img style="border-radius: 15px" id="materialImage" src="" alt="Material Image" style="display: none; width: 100%" />
+        </div>
     </div>
 </div>
 
@@ -61,4 +64,26 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        document.getElementById('materialSelect').addEventListener('change', async function () {
+            var selectedMaterial = this.value;
+            var materialImage = document.getElementById('materialImage');
+            var imageUrl = "/images/" + selectedMaterial + ".webp";
+
+            // Check if the image file exists
+            try {
+                let response = await fetch(imageUrl, { method: 'HEAD' });
+                if (response.ok) {
+                    // If the image file exists, update the src attribute and display the image
+                    materialImage.src = imageUrl;
+                    materialImage.style.display = "block";
+                } else {
+                    console.log('Image not found');
+                    materialImage.style.display = "none";
+                }
+            } catch (error) {
+                console.log('Error: ', error);
+            }
+        });
+    </script>
 }
